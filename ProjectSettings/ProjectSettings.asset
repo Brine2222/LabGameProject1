@@ -657,11 +657,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 29d901fd-33ce-4573-b38b-9ddf6ddf884e
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: GamingLabs
+  organizationId: king4brine
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
