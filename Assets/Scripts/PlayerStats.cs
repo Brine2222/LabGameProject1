@@ -1,4 +1,7 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -6,8 +9,10 @@ public class PlayerStats : MonoBehaviour
     public static int lives = 3;
     public static int score = 0;
     public static bool hasHeart = false;
+    public TextMeshProUGUI scoreUI;
 
 
+    public Image healthBar;
     private float flickerTime = 0f;
     public float flickerDuration = 0.1f;
 
@@ -34,6 +39,8 @@ public class PlayerStats : MonoBehaviour
                 sr.enabled = true;
             }
         }
+
+        scoreUI.text = " " + score;
     }
 
     void SpriteFlicker()
@@ -54,18 +61,23 @@ public class PlayerStats : MonoBehaviour
         if (isImmune == false)
         {
             health = health - damage;
+
+            healthBar.fillAmount = PlayerStats.health / 3f; //HEALTH IS STATIC, "THIS.OBJ" IS INVALID. (Also why not call onto int hp?)
+
             if (health < 0)
                 health = 0;
             if (lives > 0 && health == 0)
             {
                 FindObjectOfType<LevelManager>().RespawnPlayer();
                 health = 3;
+                healthBar.fillAmount = PlayerStats.health / 3f; //HEALTH IS STATIC, "THIS.OBJ" IS INVALID. (Also why not call onto int hp?)
                 lives--;
             }
             else if (lives == 0 && health == 0)
             {
                 Debug.Log("Gameover");
                 Destroy(this.gameObject);
+                SceneManager.LoadScene(3);
             }
 
             Debug.Log("Player Health:" + health.ToString());
@@ -75,4 +87,5 @@ public class PlayerStats : MonoBehaviour
         isImmune = true;
         immunityTime = 0f;
     }
+
 }

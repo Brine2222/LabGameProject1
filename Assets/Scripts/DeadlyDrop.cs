@@ -8,10 +8,13 @@ public class DeadlyDrop : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-    if (other.tag == "Player")
-    //if the collider of the object whose name is Sonic GameObjects touches the spike collider
+        if (other.tag == "Player")
+        {
+            
+            FindObjectOfType<PlayerStats>().TakeDamage(1);
+            FindObjectOfType<LevelManager>().RespawnPlayer();
+            //go to the Level Manager script, and execute the Respawn Player function
+        }
 
-    FindObjectOfType<LevelManager>().RespawnPlayer();
-    //go to the Level Manager script, and execute the Respawn Player function
     }
 }

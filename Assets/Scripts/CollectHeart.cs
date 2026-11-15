@@ -17,7 +17,6 @@ public class CollectHeart : MonoBehaviour
         {
             PlayerStats.lives++;
             PlayerStats.hasHeart = true;
-
             AudioManager.Instance.PlayMusicSFX(heartSound);
          
             Debug.Log("Lives: " + PlayerStats.lives);
