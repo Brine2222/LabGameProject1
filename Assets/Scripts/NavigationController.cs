@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class NavigationController : MonoBehaviour
 {
 
+
+void start(){
+
+    
+}
+
     public void onClickStart()
     {
         SceneManager.LoadScene(1); //Load Level 1
