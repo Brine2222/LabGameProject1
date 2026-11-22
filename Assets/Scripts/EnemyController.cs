@@ -6,6 +6,8 @@ public class EnemyController : MonoBehaviour
     public float maxSpeed = 2;
     public int damage = 1;
     public SpriteRenderer sr;
+    public float health = 5; 
+
 
     void Start()
     {
@@ -25,9 +27,29 @@ public class EnemyController : MonoBehaviour
             FindObjectOfType<PlayerStats>().TakeDamage(damage);
             Flip();
         }
-        else if (other.tag == "Wall")
+        else if (other.tag == "EdgeWall")
         {
             Flip();
         }
     }
+
+
+    public void EnemyTakeDamage(int damage)
+    {
+        // enemy taking damage from whatever ability
+        health -= damage;
+
+        if (health <= 0)
+        {
+            health = 0;
+        }
+
+        // if enemy is dead
+        if (health == 0)
+        {
+            Debug.Log("Enemy Finished");
+            Destroy(gameObject);
+        }
+    }
+
 }
