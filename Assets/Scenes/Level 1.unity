@@ -1483,6 +1483,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 88538094}
   bullet: {fileID: 3163271428511555061, guid: 31715e3fd874c6d458ddf7ad51d9d7d2, type: 3}
   sr: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: df97e2a2360588046a9caca61d2b64e5, type: 3}
 --- !u!1 &657731461
 GameObject:
   m_ObjectHideFlags: 0
